@@ -14,7 +14,7 @@ export default class HomePage extends Component {
 
           <TouchableHighlight
               underlayColor = "null"
-              onPress = { () => console.log('Ты пидор') } 
+              onPress = { () => console.log('Ты какашка') } 
           >
 
             <View style = { Style.littleButton }>
@@ -27,7 +27,7 @@ export default class HomePage extends Component {
 
           <TouchableHighlight
               underlayColor = "null"
-              onPress = { () => console.log('Нет ты пидор') } 
+              onPress = { () => console.log('Нет ты какашка') } 
           >
 
             <View style = { Style.littleButton2 }>

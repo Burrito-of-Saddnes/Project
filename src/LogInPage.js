@@ -28,7 +28,7 @@ export default class LogInPage extends Component {
   };
 
   onHomePage = ( mobilePhone, password ) => {
-    if( mobilePhone != null  && password == 'name' ) {
+    if( mobilePhone != null  && password != null ) {
       console.log('Mobile Phone: ' + mobilePhone + '\n' + 'password: ' + password)
       const { navigation } = this.props;
       navigation.navigate( 'Home' )
