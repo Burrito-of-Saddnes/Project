@@ -7,8 +7,8 @@ export default class LogInPage extends Component {
   constructor( props ) {
     super( props );
     this.state = {
-      mobilePhone: '',
-      password: '',
+      mobilePhone: null,
+      password: null,
     };
   };
 

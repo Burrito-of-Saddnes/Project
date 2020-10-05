@@ -10,8 +10,8 @@ export default class RegistrationPage extends Component {
     super( props )
     
     this.state = {
-      username: '',
-      email: '', 
+      username: null,
+      email: null, 
     }
   }
 
@@ -22,8 +22,8 @@ export default class RegistrationPage extends Component {
 
   onTextCheck = ( username, email) => {
     if( 
-        username == 'name' &&
-        email == 'name@name'
+        username != null  &&
+        email != null
       ) 
     {
       console.log( 
@@ -37,11 +37,11 @@ export default class RegistrationPage extends Component {
     }
   };
 
-  handleUsername= ( text ) => {
+  handleUsername = ( text ) => {
     this.setState({ username: text })
   };
 
-  handleEmail= ( text ) => {
+  handleEmail = ( text ) => {
     this.setState({ email: text })
   };
   
@@ -53,7 +53,7 @@ export default class RegistrationPage extends Component {
           placeholder = { 'Username' }
           placeholderTextColor = "#D50000"
           style = { Style.inputText }
-          autoCapitalize="none"
+          autoCapitalize = "none"
           keyboardType = "default"
           value = { this.state.username }
           onChangeText = { this.handleUsername }
@@ -63,7 +63,7 @@ export default class RegistrationPage extends Component {
           placeholder = { 'Email' }
           placeholderTextColor = "#D50000"
           style = { Style.inputText }
-          autoCapitalize="none"
+          autoCapitalize = "none"
           keyboardType = "email-address"
           value = { this.state.email }
           onChangeText = { this.handleEmail }

@@ -146,9 +146,7 @@ export default class RegistrationPage2 extends Component {
           transparent = { true } 
         >
 
-          <View 
-            style = { Style.roleMenu } 
-          >
+          <View style = { Style.roleMenu }>
 
             <Text>Please choose country</Text>
 

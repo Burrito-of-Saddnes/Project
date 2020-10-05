@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-
 export default StyleSheet.create(
   {
     mainColor: {
@@ -31,6 +30,17 @@ export default StyleSheet.create(
       justifyContent: 'center'
     },
 
+    addingMenuButton: {
+      width: 40,
+      height: 40,
+      backgroundColor: '#ecf0f1',
+      borderColor: '#48BBEC',
+      borderWidth: 1,
+      borderRadius: 40,
+      justifyContent: 'center',
+      margin: 5,
+    },
+
     role: {
       paddingTop: 4, 
       paddingBottom: 4, 
@@ -56,6 +66,38 @@ export default StyleSheet.create(
       bottom: 20,
       left: 20,
       right: 20,
+      alignItems: 'center',
+      position: 'absolute'
+    },
+
+    addingMenu: {
+      borderRadius: 30,
+      borderColor: '#48BBEC',
+      borderWidth: 1,
+      margin: 20, 
+      padding: 20,
+      height: 455,
+      width: 350,
+      backgroundColor: '#efefef',
+      // bottom: 20,
+      // left: 5,
+      // right: 5,
+      alignItems: 'center',
+      position: 'absolute'
+    },
+
+    addingRoleMenu: {
+      // borderRadius: 30,
+      // borderColor: '#48BBEC',
+      // borderWidth: 1,
+      margin: 20, 
+      paddingTop: 190,
+      height: 300,
+      width: 350,
+      // backgroundColor: '#efefef',
+      // top: 170,
+      // left: 5,
+      // right: 5,
       alignItems: 'center',
       position: 'absolute'
     },
@@ -100,8 +142,22 @@ export default StyleSheet.create(
       flexDirection: 'row',
       alignSelf: 'flex-end',
     },
+    
+    nameContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      
+    },
 
-    littleButton:{
+    addContainer: {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+    },
+
+    littleButton: {
       width: 40,
       height: 40,
       backgroundColor: '#ecf0f1',
@@ -112,7 +168,7 @@ export default StyleSheet.create(
       margin: 5,
     },
     
-    littleButton2:{
+    littleButton2: {
       width: 40,
       height: 40,
       backgroundColor: '#ecf0f1',
@@ -121,6 +177,66 @@ export default StyleSheet.create(
       borderRadius: 40,
       justifyContent: 'center',
       margin: 5,
+    },
+
+    profileButton: {
+      width: 40,
+      height: 40,
+      backgroundColor: '#ecf0f1',
+      borderColor: '#48BBEC',
+      borderWidth: 1,
+      borderRadius: 40,
+      justifyContent: 'center',
+      margin: 5,
+    },
+
+    settingsButton: {
+      width: 40,
+      height: 40,
+      backgroundColor: '#ecf0f1',
+      borderColor: '#48BBEC',
+      borderWidth: 1,
+      borderRadius: 40,
+      justifyContent: 'center',
+      margin: 5,
+    },
+
+    inputName: {
+      height: 40,
+      width: 290,
+      borderColor: '#48BBEC',
+      borderWidth: 1,
+      backgroundColor: '#ecf0f1',
+      textAlign: 'center',
+      // margin: 5,
+      borderRadius: 30,
+    },
+
+    inputMenuText: {
+      height: 40,
+      width: 250,
+      borderColor: '#48BBEC',
+      borderWidth: 1,
+      backgroundColor: '#ecf0f1',
+      textAlign: 'center',
+      margin: 5,
+      borderRadius: 30,
+    },
+
+    roleCoosingButton: {
+      width: 250,
+      height: 40,
+      backgroundColor: '#ecf0f1',
+      margin: 0,
+      borderColor: '#48BBEC',
+      borderWidth: 1,
+      borderRadius: 30,
+      justifyContent: 'center'
+    },
+
+    scrollView: {
+      flex: 1,
+      backgroundColor: '#1E1F25',
     },
 
   } 
