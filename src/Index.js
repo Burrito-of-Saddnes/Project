@@ -8,6 +8,8 @@ import HomePage from './HomePage';
 import RegistrationPage from './RegistrationPage';
 import RegistrationPagePart2 from './RegistrationPagePage2';
 import ForgottenPasswordPage from './ForgottenPasswordPage';
+import ProfilePage from './ProfilePage';
+import ChatPage from './ChatPage';
 
 const Stack = createStackNavigator();
 
@@ -85,6 +87,34 @@ export default class Index extends Component {
           <Stack.Screen
             name = "ForgottenPassword"
             component = { ForgottenPasswordPage }
+            options = {
+              {
+                headerStyle: 
+                  {
+                    backgroundColor: '#1E1F25',
+                    borderBottomWidth: 0,
+                  }, 
+                headerTintColor: '#fff'
+              }
+            }
+          />
+          <Stack.Screen
+            name = "Profile"
+            component = { ProfilePage }
+            options = {
+              {
+                headerStyle: 
+                  {
+                    backgroundColor: '#1E1F25',
+                    borderBottomWidth: 0,
+                  }, 
+                headerTintColor: '#fff'
+              }
+            }
+          />
+          <Stack.Screen 
+            name = "Chat" 
+            component = { ChatPage } 
             options = {
               {
                 headerStyle: 

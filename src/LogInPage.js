@@ -47,7 +47,7 @@ export default class LogInPage extends Component {
     return (
       <View style = { Style.mainColor }>
 
-        <Image
+        {/* <Image
           style = {
             { 
               width: 150, 
@@ -58,7 +58,7 @@ export default class LogInPage extends Component {
           }
           source = {require('./pic.png')}
           
-        />
+        /> */}
 
         {/* <Text style = { { color: 'cyan' } }>
           {this.state.mobilePhone}

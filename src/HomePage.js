@@ -20,9 +20,9 @@ export default class HomePage extends Component {
     
     this.state = {
       hollidayName: '',
-      addingName: '',
-      addingMobilePhone: '',
-      addigRoleSelection: 'Coose role',
+      addingName: null,
+      addingMobilePhone: null,
+      addingRoleSelection: 'Coose role',
       addingDisplayed: false,
       addingRoleDisplayed: false,
     }
@@ -40,14 +40,40 @@ export default class HomePage extends Component {
     this.setState({ addingMobilePhone: text })
   }
 
-  toggleAdding() {
+  toggleAddingWithCancel() {
     this.setState(
       {
         addingDisplayed: !this.state.addingDisplayed
       }
     );
   };
+  
+  toggleAddingWithAccept() {
+    this.setState(
+      {
+        addingDisplayed: !this.state.addingDisplayed
+      }
+    );
+    if(this.state.addingName != null && this.state.addingMobilePhone != null && this.state.addingRoleSelection != null) {
+      this.arr();
+    }
+    else {
+      console.log('пошёл нахер')
+    }
+  };
 
+  arr() {
+    const inputResult = [
+      {
+        name: this.state.addingName,
+        phone: this.state.addingMobilePhone,
+        role: this.state.addingRoleSelection
+      }
+    ]
+    console.log(inputResult)
+  };
+
+ 
   toggleAddingRole() {
     this.setState(
       {
@@ -59,11 +85,22 @@ export default class HomePage extends Component {
   setAddingRoleValue( newAdingRole ) {
     this.setState(
       {
-        addigRoleSelection: newAdingRole
+        addingRoleSelection: newAdingRole
       }
     );
     this.toggleAddingRole()
   };
+
+  onProfilePage = () => {
+    const { navigation } = this.props;
+    navigation.navigate( 'Profile' )
+  };
+
+  onChatPage = () => {
+    const { navigation } = this.props;
+    navigation.navigate( 'Chat' )
+  };
+
 
   render() {
 
@@ -97,7 +134,7 @@ export default class HomePage extends Component {
 
           <TouchableHighlight
               underlayColor = "null"
-              onPress = { () => console.log('Ты какашка') } 
+              onPress = { this.onProfilePage }
           >
 
             <View style = { Style.littleButton }>
@@ -154,7 +191,7 @@ export default class HomePage extends Component {
           
           <TouchableHighlight
             underlayColor = "null"
-            onPress = { () => console.log('Нет ты какашка') } 
+            onPress = { this.onChatPage }
           >
 
             <View style = { Style.settingsButton }>
@@ -173,7 +210,7 @@ export default class HomePage extends Component {
 
             <TouchableHighlight
               underlayColor = "null"
-              onPress={() => this.toggleAdding()}
+              onPress={() => this.toggleAddingWithCancel()}
             >
 
               <View style = { Style.addingMenuButton }>
@@ -220,7 +257,7 @@ export default class HomePage extends Component {
                   >
                      <View style = { Style.roleCoosingButton }>
 
-                      <Text style = { Style.text }>{ this.state.addigRoleSelection }</Text>
+                      <Text style = { Style.text }>{ this.state.addingRoleSelection }</Text>
 
                     </View>
 
@@ -265,7 +302,7 @@ export default class HomePage extends Component {
 
                 <TouchableHighlight
                   underlayColor = 'null' 
-                  onPress = { () => this.toggleAdding() } 
+                  onPress = { () => this.toggleAddingWithCancel() } 
                   style = { { paddingTop: 200, paddingBottom: 4 } }
                 >
 
@@ -275,7 +312,7 @@ export default class HomePage extends Component {
 
                 <TouchableHighlight
                   underlayColor = 'null' 
-                  onPress = { () => this.toggleAdding() } 
+                  onPress = { () => this.toggleAddingWithAccept() } 
                   style = { { paddingTop: 5, paddingBottom: 4 } }
                 >
 
@@ -290,6 +327,13 @@ export default class HomePage extends Component {
           </View>
 
         </View>
+
+        <View>
+            <Text>
+              nezt
+            </Text>
+        </View>
+      
 
       </ScrollView>
     );
