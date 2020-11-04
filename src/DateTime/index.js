@@ -1,5 +1,6 @@
-import DateTime from './src/DateTime'
-export default DateTime,
+import React, { Component } from 'react'
+import {
+  Platform,
   StyleSheet,
   Text,
   View
