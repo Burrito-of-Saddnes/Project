@@ -12,6 +12,9 @@ import {
 import Style from './Style';
 import 'react-native-gesture-handler';
 import Calendario from './Calendar';
+import { YellowBox } from 'react-native';
+
+YellowBox.ignoreWarnings(['VirtualizedLists should never be nested']);
 
 export default class HomePage extends Component {
 

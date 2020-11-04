@@ -10,9 +10,6 @@ basePath: "/v2"
 tags:
 - name: "user"
   description: "Operations about user"
-  externalDocs:
-    description: "Find out more about our store"
-    url: "http://swagger.io"
 
 schemes:
 - "https"
@@ -24,7 +21,6 @@ paths:
       tags:
       - "user"
       summary: "Create user"
-      description: "This can only be done by the logged in user."
       operationId: "createUser"
       produces:
       - "application/xml"
