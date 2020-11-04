@@ -1,7 +1,5 @@
-
-import React, { Component } from 'react'
-import {
-  Platform,
+import DateTime from './src/DateTime'
+export default DateTime,
   StyleSheet,
   Text,
   View
@@ -81,9 +79,9 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
-    backgroundColor: '#201216',
-    height: 350,
-    paddingVertical: 20
+    marginTop: 10,
+    backgroundColor: '#1E1F25',
+    height: 370,
+    paddingVertical: 5
   }
 })

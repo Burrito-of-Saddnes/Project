@@ -22,9 +22,10 @@ export default StyleSheet.create({
     width: screenWidth / 7,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#25171A',
-    borderColor: '#201216',
+    backgroundColor: '#1E1F25',
+    borderColor: '#1E1F25',
     borderWidth: 1,
+    borderRadius: 40,
   },
   icLockRed: {
     width: 13 / 2,
