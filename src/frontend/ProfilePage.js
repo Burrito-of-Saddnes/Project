@@ -1,8 +1,11 @@
-import React, { Component, useState, useEffect } from 'react';
-import { Button, ImageBackground, Image, View, Platform, TextInput, Text, TouchableOpacity, ScrollView } from 'react-native';
+import React, { Component} from 'react';
+import { Button, Image, View, Platform, TextInput, Text, TouchableOpacity, ScrollView } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import Constants from 'expo-constants';
-import { StatusBar } from 'expo-status-bar';
+import { Dimensions } from 'react-native';
+import Style from './Style';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 class ImageChanger extends Component {
   constructor(props){
@@ -39,10 +42,10 @@ class ImageChanger extends Component {
 
   render(){
     return (
-      <View style={{ flex: 2.5, alignItems: 'center', justifyContent: 'center' }}>
-        <Image resizeMode = 'contain' source={{ uri: this.state.image }} style={{ width: "80%", height: "80%", borderWidth: 2, borderColor:"#000080" }}/>
+      <View style={{ height: windowHeight*0.5, alignItems: 'center', justifyContent: 'center',  }}>
+      <Image resizeMode = 'cover' source={{ uri: this.state.image }} style={{ width: "80%", height: "80%", borderWidth: 2, borderColor:"#fff", borderRadius: 360 }}/>
         <View style={{display: this.props.visible}}>
-          <Button title="Pick an image from camera roll" onPress={this.pickImage} />
+          <Button title="Изменить фото" onPress={this.pickImage} />
         </View>
       </View>
     );
@@ -81,31 +84,35 @@ export default class ProfilePage extends Component{
     
     render() {
         return (
-          <View style={{flex: 1, marginTop: Constants.statusBarHeight, backgroundColor: "cyan"}}>
-            <View style={{flex:0.3, justifyContent: "center", alignItems: "flex-end"}}>
-              <TouchableOpacity onPress={()=>{this.setState({editable: true, visible: "flex"});}} style={{justifyContent: "center", flex:1, }}>
-                <Text style={{color: "white", textShadowColor: "#0000FF", textShadowOffset:{width:0,height:0}, textShadowRadius: 30, fontWeight: "bold"}}>Редактировать</Text>
+          <ScrollView style={{backgroundColor: '#1E1F25', flex: 1, flexDirection: 'column',}}>
+            
+            <View style={{height: windowHeight*0.06, width: "100%", justifyContent: "center", bordercolor: "red", alignItems: "flex-end"}}>
+              <TouchableOpacity onPress={()=>{this.setState({editable: true, visible: "flex"});}} style={{justifyContent: "center", flex:1}}>
+                <Text style={{color: "white", backgroundColor:"#24509A", padding:10, marginTop:20, marginRight:130, borderRadius:15, fontWeight: "bold"}}>Редактировать</Text>
               </TouchableOpacity>
             </View>
+            
             <ImageChanger visible = {this.state.visible}/>      
-            <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+            
+            <View style={{height: windowHeight*0.2, justifyContent: "center", alignItems: "center"}}>
               <TextInput
                 editable={this.state.editable}
-                style={{flex:1, backgroundColor: "white",  borderRadius: 30, borderWidth: 2, borderColor: "grey", width: "50%", textAlign: "center"}}
+                style={{flex:1, backgroundColor: "white",  borderRadius: 30, borderWidth: 2, borderColor: "grey", width: "50%", textAlign: "center", marginBottom:10}}
                 placeholder = {'Фамилия'} 
                 value={this.state.surname} 
-                onChangeText={this.handleSurname}
+					 onChangeText={this.handleSurname}
+					 
               />
               <TextInput
                 editable={this.state.editable}
-                style={{flex:1, backgroundColor: "white", borderRadius: 30, borderWidth: 2, borderColor: "grey", width: "50%", textAlign: "center"}}
+                style={{flex:1, backgroundColor: "white", borderRadius: 30, borderWidth: 2, borderColor: "grey", width: "50%", textAlign: "center",  marginBottom:10 }}
                 placeholder = {'Имя'} 
                 value={this.state.name} 
                 onChangeText={this.handleName}
               />
               <TextInput
                 editable={this.state.editable}
-                style={{flex:1, backgroundColor: "white",  borderRadius: 30, borderWidth: 2, borderColor: "grey", width: "50%", textAlign: "center"}}
+                style={{flex:1, backgroundColor: "white",  borderRadius: 30, borderWidth: 2, borderColor: "grey", width: "50%", textAlign: "center",  marginBottom:10 }}
                 placeholder = {'Отчество'} 
                 value={this.state.middleName} 
                 onChangeText={this.handleMiddleName}
@@ -120,15 +127,14 @@ export default class ProfilePage extends Component{
                 onChangeText={this.handlePhone}
               />
             </View>
-            <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-              <TouchableOpacity onPress={()=>{this.setState({editable: false, visible: "none"})}} style={{backgroundColor: "red", borderRadius: 10, padding: 10, display: this.state.visible}}>
+           
+            <View style={{height: windowHeight*0.1, justifyContent: "center", alignItems: "center"}}>
+              <TouchableOpacity onPress={()=>{this.setState({editable: false, visible: "none"})}} style={{backgroundColor: "#24509A", borderRadius: 10, padding: 10, display: this.state.visible}}>
                 <Text style={{color: "white", fontWeight: "bold", fontSize: 20}}>Сохранить</Text>
               </TouchableOpacity>
             </View>
 
-
-
-           </View>
+           </ScrollView>
         );
     }
 }

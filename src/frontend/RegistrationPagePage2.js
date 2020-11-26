@@ -3,6 +3,10 @@ import { Component } from 'react';
 import { View, TextInput, TouchableHighlight, Text, Modal, Image } from 'react-native';
 import Style from './Style';
 import 'react-native-gesture-handler';
+import { Dimensions } from 'react-native';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default class RegistrationPage2 extends Component {
 
@@ -126,158 +130,127 @@ export default class RegistrationPage2 extends Component {
 
     return (
       <View style = { Style.mainColor }>
+        <View style={{width:"60%", height: windowHeight*0.6, alignItems: 'center', justifyContent: 'space-around',}}>
 
-        <TouchableHighlight 
-          underlayColor = "null"
-          onPress={() => this.toggleCountry()}
-        >
-
-          <View style = { Style.verificationButton }>
-
+          <TouchableHighlight style = { Style.verificationButton } underlayColor = "null" onPress={() => this.toggleCountry()}>
             <Text style = { Style.text }>{ this.state.countrySelection }</Text>
+          </TouchableHighlight>
+          
+          <Modal 
+            visible = { this.state.countryDisplayed } 
+            animationType = { "slide" } 
+            transparent = { true } 
+          >
+            <View style={{flex:1, alignItems: 'center', justifyContent: 'flex-end'}}>
+              <View style = { Style.roleMenu }>
 
-          </View>
+                <Text>Please choose country</Text>
 
-        </TouchableHighlight>
+                { countryValues.map(( value, index ) => {
+                  return <TouchableHighlight 
+                            key = { index }
+                            underlayColor = 'null'
+                            onPress = { () => this.setCountryValue( value.value ) } 
+                            style = { Style.role}
+                          >
+                            <Text style = {Style.text}>{ value.title }</Text>
+                          </TouchableHighlight>
+                })}
 
-        <Modal 
-          visible = { this.state.countryDisplayed } 
-          animationType = { "slide" } 
-          transparent = { true } 
-        >
-
-          <View style = { Style.roleMenu }>
-
-            <Text>Please choose country</Text>
-
-            { countryValues.map(( value, index ) => {
-              return <TouchableHighlight 
-                        key = { index }
-                        underlayColor = 'null'
-                        onPress = { () => this.setCountryValue( value.value ) } 
-                        style = { Style.role}
-                      >
-
-                  <Text style = {Style.text}>{ value.title }</Text>
-
+                <TouchableHighlight
+                  underlayColor = 'null' 
+                  onPress = { () => this.toggleCountry() } 
+                  style = { { paddingTop: 4, paddingBottom: 4 } }
+                >
+                  <Text style = { { color: '#999' } }>Cancel</Text>
                 </TouchableHighlight>
-            })}
-            
-            <TouchableHighlight
-              underlayColor = 'null' 
-              onPress = { () => this.toggleCountry() } 
-              style = { { paddingTop: 4, paddingBottom: 4 } }
-            >
 
-              <Text style = { { color: '#999' } }>Cancel</Text>
+              </View>
+            </View>
+          </Modal>
 
-            </TouchableHighlight>
-
-          </View>
-
-        </Modal>
-
-        <TextInput
-          placeholder = { 'Mobile Phone' }
-          placeholderTextColor = "#D50000"
-          style = { Style.inputText }
-          autoCapitalize = "none"
-          keyboardType = "phone-pad"
-          value = { this.state.mobilePhone }
-          onChangeText = { this.handleMobilePhone }
-        />
-
-        <TextInput
-          placeholder = { 'Password' }
-          placeholderTextColor = "#D50000"
-          style = { Style.inputText }
-          secureTextEntry = { true }
-          autoCapitalize = "none"
-          value = { this.state.password }
-          onChangeText = { this.handlePassword }
-        />
-
-        <TextInput
-          placeholder = { 'Repeat password' }
-          placeholderTextColor = "#D50000"
-          style = { Style.inputText }
-          secureTextEntry = { true }
-          autoCapitalize = "none"
-          value = { this.state.repeatPassword }
-          onChangeText = { this.handleRepeatPassword }
+          <TextInput
+            placeholder = { 'Mobile Phone' }
+            placeholderTextColor = "#ADA89F"
+            style = { Style.inputText }
+            autoCapitalize = "none"
+            keyboardType = "phone-pad"
+            value = { this.state.mobilePhone }
+            onChangeText = { this.handleMobilePhone }
           />
 
-        <TouchableHighlight 
-          underlayColor = "null"
-          onPress={() => this.togglePicker()}
-        >
+          <TextInput
+            placeholder = { 'Password' }
+            placeholderTextColor = "#ADA89F"
+            style = { Style.inputText }
+            secureTextEntry = { true }
+            autoCapitalize = "none"
+            value = { this.state.password }
+            onChangeText = { this.handlePassword }
+          />
 
-          <View style = { Style.verificationButton }>
+          <TextInput
+            placeholder = { 'Repeat password' }
+            placeholderTextColor = "#ADA89F"
+            style = { Style.inputText }
+            secureTextEntry = { true }
+            autoCapitalize = "none"
+            value = { this.state.repeatPassword }
+            onChangeText = { this.handleRepeatPassword }
+            />
 
-            <Text style = { Style.text }>{ this.state.pickerSelection }</Text>
+          <TouchableHighlight style = { Style.verificationButton } underlayColor = "null" onPress={() => this.togglePicker()}>
+              <Text style = { Style.text }>{ this.state.pickerSelection }</Text>
+          </TouchableHighlight>
 
-          </View>
+          <Modal 
+            visible = { this.state.pickerDisplayed } 
+            animationType = { "slide" } 
+            transparent = { true } 
+          >
+            <View style={{flex:1, alignItems: 'center', justifyContent: 'flex-end'}}>
+              <View style = { Style.roleMenu }>
+                <Text>Please pick a role</Text>
+                { pickerValues.map(( value, index ) => {
+                  return <TouchableHighlight 
+                            key = { index }
+                            underlayColor = 'null'
+                            onPress = { () => this.setPickerValue( value.value ) } 
+                            style = { Style.role}
+                          >
+                            <Text style = {Style.text}>{ value.title }</Text>
+                          </TouchableHighlight>
+                })}
+                
+                <TouchableHighlight underlayColor = 'null' onPress = { () => this.togglePicker() } style = { { paddingTop: 4, paddingBottom: 4 } }>
+                  <Text style = { { color: '#999' } }>Cancel</Text>
+                </TouchableHighlight>
 
-        </TouchableHighlight>
+              </View>
+            </View>
+            
 
-        <Modal 
-          visible = { this.state.pickerDisplayed } 
-          animationType = { "slide" } 
-          transparent = { true } 
-        >
+          </Modal>
 
-          <View 
-            style = { Style.roleMenu } 
+          <TouchableHighlight
+            underlayColor = "null"
+            onPress = { () => this.onTextCheck( 
+                this.state.mobilePhone, 
+                this.state.password, 
+                this.state.repeatPassword,
+                this.state.pickerSelection
+              ) 
+            } 
           >
 
-            <Text>Please pick a role</Text>
+            <View style = { Style.verificationButton }>
 
-            { pickerValues.map(( value, index ) => {
-              return <TouchableHighlight 
-                        key = { index }
-                        underlayColor = 'null'
-                        onPress = { () => this.setPickerValue( value.value ) } 
-                        style = { Style.role}
-                      >
+              <Text style = { Style.text }>Send verification code</Text>
 
-                  <Text style = {Style.text}>{ value.title }</Text>
+            </View>
 
-                </TouchableHighlight>
-            })}
-            
-            <TouchableHighlight
-              underlayColor = 'null' 
-              onPress = { () => this.togglePicker() } 
-              style = { { paddingTop: 4, paddingBottom: 4 } }
-            >
-
-              <Text style = { { color: '#999' } }>Cancel</Text>
-
-            </TouchableHighlight>
-
-          </View>
-
-        </Modal>
-
-        <TouchableHighlight
-          underlayColor = "null"
-          onPress = { () => this.onTextCheck( 
-              this.state.mobilePhone, 
-              this.state.password, 
-              this.state.repeatPassword,
-              this.state.pickerSelection
-            ) 
-          } 
-        >
-
-          <View style = { Style.verificationButton }>
-
-            <Text style = { Style.text }>Send verification code</Text>
-
-          </View>
-
-        </TouchableHighlight>
-      
+          </TouchableHighlight>
+        </View>
       </View>
     );
   }

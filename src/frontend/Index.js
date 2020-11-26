@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import { Image } from 'react-native';
+import { Image, Text, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LogInPage from './LogInPage';
@@ -10,6 +10,8 @@ import RegistrationPagePart2 from './RegistrationPagePage2';
 import ForgottenPasswordPage from './ForgottenPasswordPage';
 import ProfilePage from './ProfilePage';
 import ChatPage from './ChatPage';
+import NotesPage from './NotesPage';
+
 
 const Stack = createStackNavigator();
 
@@ -108,7 +110,7 @@ export default class Index extends Component {
                     backgroundColor: '#1E1F25',
                     borderBottomWidth: 0,
                   }, 
-                headerTintColor: '#fff'
+                headerTintColor: '#fff',
               }
             }
           />
@@ -122,6 +124,20 @@ export default class Index extends Component {
                     backgroundColor: '#1E1F25',
                     borderBottomWidth: 0,
                   }, 
+                headerTintColor: '#fff'
+              }
+            }
+          />
+          <Stack.Screen
+            name = "Notes"
+            component = { NotesPage }
+            options = {
+              {
+                headerStyle:
+                {
+                  backgroundColor: '#1E1F25',
+                  borderBottomWidth: 0,                
+                },
                 headerTintColor: '#fff'
               }
             }

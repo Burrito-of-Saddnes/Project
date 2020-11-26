@@ -7,7 +7,7 @@ export default class ForgottenPasswordPage extends Component {
     render() {
         return(
             <View>
-                <Text> sdafsad </Text>
+                <Text> Ну да, получается </Text>
             </View>
         );
     }

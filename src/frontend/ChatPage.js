@@ -28,9 +28,9 @@ class ImageLibrary extends Component {
   };
   render(){
     return (
-      <View style={{height: "33.33%", width: "100%", justifyContent: "center", alignItems: "center"}}>
-        <TouchableOpacity style={{height: "60%", width: "80%", backgroundColor: "cyan", borderRadius: 10, justifyContent: "center"}} onPress={this.pickImageFromLibrary}>
-          <Text style={{fontSize: 18, color: "white", textAlign: "center", fontWeight: "bold", textShadowColor:"green", textShadowOffset:{height:0,width:0}, textShadowRadius:10}}>Выбрать из галереи</Text>
+      <View style={{height: "33.33%", width: "100%", justifyContent: "center", alignItems: "center", backgroundColor:"black",borderTopLeftRadius:10, borderTopRightRadius:10}}>
+        <TouchableOpacity style={{height: "60%", width: "80%", backgroundColor: "#4169E1", justifyContent: "center", borderRadius:10}} onPress={this.pickImageFromLibrary}>
+          <Text style={{fontSize: 18, color: "white", textAlign: "center", fontWeight: "bold"}}>Выбрать из галереи</Text>
         </TouchableOpacity>
       </View>
     );
@@ -57,9 +57,9 @@ class ImageCamera extends Component {
 
   render(){
     return (
-      <View style={{height: "33.33%", width: "100%", justifyContent: "center", alignItems: "center"}}>
-        <TouchableOpacity style={{height: "60%", width: "80%", backgroundColor: "cyan", borderRadius: 10, justifyContent: "center"}} onPress={this.pickImageFromCamera}>
-          <Text style={{fontSize: 18, color: "white", textAlign: "center", fontWeight: "bold", textShadowColor:"green", textShadowOffset:{height:0,width:0}, textShadowRadius:10}}>Cделать снимок</Text>
+      <View style={{height: "33.33%", width: "100%", justifyContent: "center", alignItems: "center", backgroundColor:"black"}}>
+        <TouchableOpacity style={{height: "60%", width: "80%", backgroundColor: "#4169E1", borderRadius: 10, justifyContent: "center"}} onPress={this.pickImageFromCamera}>
+          <Text style={{fontSize: 18, color: "white", textAlign: "center", fontWeight: "bold"}}>Cделать снимок</Text>
         </TouchableOpacity>
       </View>
     );
@@ -107,11 +107,11 @@ export default class ChatPage extends Component{
   };
   render(){
     return(
-        <View style={{flex:1, marginTop: Constants.statusBarHeight}}>
+        <View style={{flex:1}}>
 
-          <View style={{flexDirection: "row", height: windowHeight*0.08, backgroundColor: "#808080"}}>
+          {/* <View style={{flexDirection: "row", height: windowHeight*0.08, backgroundColor:"black"}}>
 
-            <View style={{flex: 7, flexDirection:"row", alignContent: "center"}}>
+            <View style={{flex: 7, flexDirection:"row", alignContent: "center",}}>
               <Text style={{textAlign: "center", fontSize: 20}}>{this.state.nameConvarsation}</Text>
             </View>
 
@@ -121,16 +121,16 @@ export default class ChatPage extends Component{
               </TouchableOpacity> 
             </View>
 
-          </View>
+          </View> */}
 
           <Modal
             animationType="slide"
             transparent={true}
             visible={this.state.visibleModalSettings}>
             <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-              <View style={{alignItems: "center", backgroundColor: "#FFE4E1", height:"80%", width:"80%"}}>
-                <TouchableOpacity onPress={()=>{this.setState({visibleModalSettings: false, symbolEdit: String.fromCodePoint(9998), editableNameConversation: false})}} style={{backgroundColor: "#D3D3D3", borderRadius: 20, justifySelf: "flex-end", alignSelf: "center"}}>
-                  <Text style={{fontSize: 20, padding: 5, color: "red"}}>Закрыть</Text>
+              <View style={{alignItems: "center", backgroundColor: "#FFE4E1", height:"80%", width:"80%", }}>
+                <TouchableOpacity onPress={()=>{this.setState({visibleModalSettings: false, symbolEdit: String.fromCodePoint(9998), editableNameConversation: false})}} style={{backgroundColor: "#D3D3D3", borderRadius: 15, justifySelf: "flex-end", alignSelf: "center", marginTop:30}}>
+                  <Text style={{fontSize: 20, padding: 10, color: "white", backgroundColor:"#24509A", borderRadius:15}}>Закрыть</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -153,13 +153,13 @@ export default class ChatPage extends Component{
               <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
                 <View style={{alignItems: "center", backgroundColor: "#FFE4E1", height:"40%", width:"70%", borderRadius: 30}}>
 
-                    <ImageLibrary/>
+                    <ImageLibrary onPress={()=>{this.setState({visibleModalImagePicker: false})}}/>
                 
                     <ImageCamera/>
 
-                  <View style={{height: "33.33%", width: "100%", justifyContent: "center", alignItems: "center"}}>
-                    <TouchableOpacity onPress={()=>{this.setState({visibleModalImagePicker: false})}} style={{height: "60%", width:"60%", justifyContent: "center", backgroundColor: "#D3D3D3", borderRadius: 20}}>
-                      <Text style={{fontSize: 20, color: "red", textAlign: "center", fontWeight: "bold"}}>Закрыть</Text>
+                  <View style={{height: "33.33%", width: "100%", justifyContent: "center", alignItems: "center", backgroundColor:"black",borderBottomLeftRadius:10, borderBottomRightRadius:10}}>
+                    <TouchableOpacity onPress={()=>{this.setState({visibleModalImagePicker: false})}} style={{height: "60%", width:"80%", justifyContent: "center", backgroundColor: "#4169E1", borderRadius: 10}}>
+                      <Text style={{fontSize: 20, color: "white", textAlign: "center", fontWeight: "bold"}}>Закрыть</Text>
                     </TouchableOpacity>
                   </View>
                   
@@ -169,19 +169,19 @@ export default class ChatPage extends Component{
             </Modal>
 
 
-            <TouchableOpacity onPress={()=>{this.setState({visibleModalImagePicker: true});}} style={{flex:1, justifyContent: "center", alignItems: "center", backgroundColor: "#4169E1"}}>
+            <TouchableOpacity onPress={()=>{this.setState({visibleModalImagePicker: true});}} style={{flex:1.5, justifyContent: "center", alignItems: "center", backgroundColor: "#4169E1"}}>
               <Text style={{color: "white", fontSize: 25}}>+</Text>
             </TouchableOpacity>
 
             <TextInput
               multiline={true}
               onChangeText={(text) => {this.setState({inputText: text})}}
-              style={{flex: 6}}
+              style={{flex: 6, paddingLeft:15}}
               value = {this.state.inputText}
               placeholder="Введите сообщение..."
             />
 
-            <TouchableOpacity onPress={this.sendMessage} style={{flex: 1.3, justifyContent: "center", alignItems: "center",  backgroundColor: "#4169E1"}}>
+            <TouchableOpacity onPress={this.sendMessage} style={{flex: 1.5, justifyContent: "center", alignItems: "center",  backgroundColor: "#4169E1"}}>
               <Text style={{color: "white", fontSize: 25}}>{String.fromCodePoint(10146)}</Text>
             </TouchableOpacity>
 

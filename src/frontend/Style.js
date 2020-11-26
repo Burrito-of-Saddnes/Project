@@ -1,243 +1,242 @@
 import { StyleSheet } from 'react-native';
+import { Dimensions } from 'react-native';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 export default StyleSheet.create(
-  {
-    mainColor: {
-      flex: 1,
-      backgroundColor: '#1E1F25',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    
-    button: { 
-      width: 100,
-      height: 41,
-      backgroundColor: '#ecf0f1',
-      margin: 10,
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      borderRadius: 30,
-      justifyContent: 'center'
-    },
+	{
+		mainColor: {
+			flex: 1,
+			backgroundColor: '#1E1F25',
+			alignItems: 'center',
+			justifyContent: 'center',
+		},
 
-    verificationButton: {
-      width: 200,
-      height: 41,
-      backgroundColor: '#ecf0f1',
-      margin: 10,
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      borderRadius: 30,
-      justifyContent: 'center'
-    },
 
-    addingMenuButton: {
-      width: 40,
-      height: 40,
-      backgroundColor: '#ecf0f1',
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      borderRadius: 40,
-      justifyContent: 'center',
-      margin: 5,
-    },
+		button: {
+			height: "15%",
+			width: "60%",
+			backgroundColor: '#24509A',
+			borderColor: '#48BBEC',
+			borderWidth: 1,
+			borderRadius: 15,
+			justifyContent: 'center'
+		},
 
-    role: {
-      paddingTop: 4, 
-      paddingBottom: 4, 
-      width: 100, 
-      margin: 5,
-      height: 30, 
-      backgroundColor: '#ecf0f1',
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      justifyContent: 'center',
-      borderRadius: 30,
-    },
+		verificationButton: {
+			width: 200,
+			height: 41,
+			backgroundColor: '#24509A',
+			margin: 10,
+			borderColor: '#48BBEC',
+			borderWidth: 1,
+			borderRadius: 30,
+			justifyContent: 'center'
+		},
 
-    roleMenu: {
-      borderRadius: 30,
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      margin: 20, 
-      padding: 20,
-      backgroundColor: '#efefef',
-      height: 200,
-      width: 300,
-      bottom: 20,
-      left: 20,
-      right: 20,
-      alignItems: 'center',
-      position: 'absolute'
-    },
+		addingMenuButton: {
+			marginLeft: 10,
+			width: 40,
+			height: 40,
+			// backgroundColor: 'blue',
+			// borderColor: '#48BBEC',
+			// borderWidth: 1,
+			borderRadius: 40,
+			justifyContent: 'center',
+			alignContent:'center',
+			alignItems: 'center',
+			alignSelf:'center',
+		},
 
-    addingMenu: {
-      borderRadius: 30,
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      margin: 20, 
-      padding: 20,
-      height: 455,
-      width: 350,
-      backgroundColor: '#efefef',
-      // bottom: 20,
-      // left: 5,
-      // right: 5,
-      alignItems: 'center',
-      position: 'absolute'
-    },
+		role: {
+			height: "14%",
+			width: "30%",
+			backgroundColor: '#000',
+			borderColor: '#48BBEC',
+			borderWidth: 1,
+			justifyContent: 'center',
+			borderRadius: 30,
+			shadowColor: "#000",
+			shadowOffset: {
+				width: 0,
+				height: 3,
+			},
+			shadowOpacity: 0.27,
+			shadowRadius: 4.65,
 
-    addingRoleMenu: {
-      // borderRadius: 30,
-      // borderColor: '#48BBEC',
-      // borderWidth: 1,
-      margin: 20, 
-      paddingTop: 190,
-      height: 300,
-      width: 350,
-      // backgroundColor: '#efefef',
-      // top: 170,
-      // left: 5,
-      // right: 5,
-      alignItems: 'center',
-      position: 'absolute'
-    },
+			elevation: 6,
+		},
 
-    text: {
-      fontSize: 15,
-      color: 'black',
-      alignSelf: 'center'
-    },
+		roleMenu: {
+			height: "30%",
+			width: "70%",
+			borderRadius: 30,
+			borderColor: '#48BBEC',
+			borderWidth: 1,
+			paddingTop: 10,
+			paddingBottom: 10,
+			paddingLeft: 20,
+			paddingRight: 20,
+			backgroundColor: '#fff',
+			justifyContent: "space-around",
+			alignItems: 'center',
+			position: 'absolute'
+		},
 
-    forgottenText: {
-      fontSize: 10,
-      color: 'red',
-    },
+		addingMenu: {
+			alignItems: "center",
+			backgroundColor: "#efefef",
+			height: windowHeight * 0.7,
+			width: "90%",
+			borderRadius: 30,
+			borderColor: '#48BBEC',
+			borderWidth: 1,
+			padding: 15,
+			position: 'absolute',
+			
 
-    inputText: {
-      height: 40,
-      width: 200,
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      backgroundColor: '#ecf0f1',
-      textAlign: 'center',
-      margin: 10,
-      borderRadius: 30,
-    },
+		},
 
-    input: {
-      width: 50,
-      height: 50,
-      padding: 10,
-      marginBottom: 10,
-      backgroundColor: '#ecf0f1'
-    },
-    
-    container: {
-      backgroundColor: '#1E1F25',
-      flex: 1,
-      flexDirection: 'column',
-    },
+		addingRoleMenu: {
+			height: "100%",
+			width: "100%",
+			alignItems: 'center',
+			justifyContent: "space-around",
+			
+		},
 
-    childrenContainer: {
-      flexDirection: 'row',
-      alignSelf: 'flex-end',
-    },
-    
-    nameContainer: {
-      flex: 1,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      
-    },
+		text: {
+			fontSize: 15,
+			color: 'white',
+			alignSelf: 'center'
+		},
+		textB:
+		{
+			fontSize:15,
+			color: 'black',
+			alignSelf:'center',
+			borderRadius:50,
+		},
 
-    addContainer: {
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'center',
-    },
+		forgottenText: {
+			fontSize: 13,
+			color: '#8B807A',
+		},
 
-    littleButton: {
-      width: 40,
-      height: 40,
-      backgroundColor: '#ecf0f1',
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      borderRadius: 40,
-      justifyContent: 'center',
-      margin: 5,
-    },
-    
-    littleButton2: {
-      width: 40,
-      height: 40,
-      backgroundColor: '#ecf0f1',
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      borderRadius: 40,
-      justifyContent: 'center',
-      margin: 5,
-    },
+		inputText: {
 
-    profileButton: {
-      width: 40,
-      height: 40,
-      backgroundColor: '#ecf0f1',
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      borderRadius: 40,
-      justifyContent: 'center',
-      margin: 5,
-    },
+			height: "15%",
+			width: "100%",
+			backgroundColor: '#ecf0f1',
+			textAlign: 'center',
+			borderRadius: 15,
 
-    settingsButton: {
-      width: 40,
-      height: 40,
-      backgroundColor: '#ecf0f1',
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      borderRadius: 40,
-      justifyContent: 'center',
-      margin: 5,
-    },
+		},
 
-    inputName: {
-      height: 40,
-      width: 290,
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      backgroundColor: '#ecf0f1',
-      textAlign: 'center',
-      // margin: 5,
-      borderRadius: 30,
-    },
 
-    inputMenuText: {
-      height: 40,
-      width: 250,
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      backgroundColor: '#ecf0f1',
-      textAlign: 'center',
-      margin: 5,
-      borderRadius: 30,
-    },
 
-    roleCoosingButton: {
-      width: 250,
-      height: 40,
-      backgroundColor: '#ecf0f1',
-      margin: 0,
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      borderRadius: 30,
-      justifyContent: 'center'
-    },
+		input: {
+			width: 50,
+			height: 50,
+			padding: 10,
+			marginBottom: 10,
+			backgroundColor: '#ecf0f1'
+		},
 
-    scrollView: {
-      flex: 1,
-      backgroundColor: '#1E1F25',
-    },
+		container: {
+			backgroundColor: '#1E1F25',
+			flex: 1,
+			// height: windowHeight,
+			flexDirection: 'column',
+		},
 
-  } 
+		childrenContainer: {
+			width: "40%",
+			flexDirection: 'row',
+			alignSelf: 'flex-end',
+		},
+
+		nameContainer: {
+			flex: 1,
+			flexDirection: 'row',
+			// alignItems: 'center',
+			// justifyContent: 'center',
+
+		},
+
+		addContainer: {
+			flex: 1,
+			alignItems: "flex-start",
+			justifyContent: 'center',
+			marginTop: 10,
+			
+		},
+
+		littleButton: {
+			padding: 5,
+			width: "50%",
+			backgroundColor: '#ecf0f1',
+			borderColor: '#48BBEC',
+			borderWidth: 1,
+			borderRadius: 40,
+		},
+
+		inputName: {
+			fontSize: 15,
+			width: "90%",
+	
+			backgroundColor: '#ecf0f1',
+			textAlign: 'center',
+			borderRadius: 30,
+		},
+
+		profileButton: {
+			padding: 5,
+			width: "50%",
+			backgroundColor: '#ecf0f1',
+			borderColor: '#48BBEC',
+			borderWidth: 1,
+			borderRadius: 40,
+		},
+
+		settingsButton: {
+			padding: 5,
+			width: "50%",
+			backgroundColor: '#ecf0f1',
+			borderColor: '#48BBEC',
+			borderWidth: 1,
+			borderRadius: 40,
+		},
+
+		inputMenuText: {
+			height: "30%",
+			width: "100%",
+			borderColor: '#48BBEC',
+			borderWidth: 1,
+			backgroundColor: '#ecf0f1',
+			textAlign: 'center',
+			borderRadius: 30,
+			
+			
+		},
+
+		roleCoosingButton: {
+			height: "30%",
+			width: "70%",
+			borderColor: '#48BBEC',
+			borderWidth: 1,
+			backgroundColor: '#ecf0f1',
+			borderRadius: 30,
+			justifyContent: 'center'
+		},
+
+		scrollView: {
+			flex: 1,
+			backgroundColor: '#1E1F25',
+		},
+
+
+
+	}
 );  
