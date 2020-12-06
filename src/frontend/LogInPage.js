@@ -1,6 +1,11 @@
 import React from 'react';
 import { Component } from 'react';
-import { Text, TextInput, View, TouchableHighlight, ScrollView } from 'react-native';
+import { 
+  Text, 
+  TextInput, 
+  View, 
+  TouchableHighlight, 
+  ScrollView } from 'react-native';
 import Style from './Style';
 import { Dimensions } from 'react-native';
 
@@ -11,15 +16,15 @@ export default class LogInPage extends Component {
   constructor( props ) {
     super( props );
     this.state = {
-      mobilePhone: null,
+      email: null,
       password: null,
     };
   };
 
-  handleMobilePhone = (text) => {
-    text = text.replace(/[^0-9]/, '')
-    text = text.substr(0, 10);
-    this.setState({ mobilePhone: text })
+  handleEmail = (text) => {
+    // text = text.replace(/[^0-9]/, '')
+    // text = text.substr(0, 10);
+    this.setState({ email: text })
  };
 
  handlePassword = (text) => {
@@ -31,9 +36,9 @@ export default class LogInPage extends Component {
     navigation.navigate( 'Registration' )
   };
 
-  onHomePage = ( mobilePhone, password ) => {
-    if( mobilePhone != null  && password != null ) {
-      console.log('Mobile Phone: ' + mobilePhone + '\n' + 'password: ' + password)
+  onHomePage = ( email, password ) => {
+    if( email != null  && password != null ) {
+      console.log('Email: ' + email + '\n' + 'password: ' + password)
       const { navigation } = this.props;
       navigation.navigate( 'Home' )
     }
@@ -49,59 +54,43 @@ export default class LogInPage extends Component {
 
   render() {
     return (
-      <View style = { Style.mainColor }>
-
-        {/* <Image
-          style = {
-            { 
-              width: 150, 
-              height: 150,
-              position: 'absolute',
-              bottom: 550,
-            }
-          }
-          source = {require('./pic.png')}
-          
-        /> */}
-
-        {/* <Text style = { { color: 'cyan' } }>
-          {this.state.mobilePhone}
-        </Text> */}
-
-        <View style={{width:"60%", height: windowHeight*0.6, alignItems: 'center', justifyContent: 'space-around',}}>
-          <TextInput  
-              placeholder = { 'Mobile Phone' }
+      <ScrollView style={Style.container}>
+        <View style = { Style.mainColor }>
+          <View style={{width:"60%", height: windowHeight*0.6, alignItems: 'center', justifyContent: 'space-around',}}>
+            <TextInput  
+              placeholder = { 'Email' }
               placeholderTextColor = "#ADA89F"
               style = { Style.inputText }
               autoCapitalize = "none"
-              keyboardType = "phone-pad"
-              value = { this.state.mobilePhone }
-              onChangeText = { this.handleMobilePhone }
+              keyboardType = "email-address"
+              value = { this.state.email }
+              onChangeText = { this.handleEmail }
             />
 
-          <TextInput 
-            placeholder = { 'Password' }
-            placeholderTextColor = "#ADA89F"
-            style = { Style.inputText }
-            autoCapitalize = "none"
-            secureTextEntry = { true } 
-            value = { this.state.password }
-            onChangeText = { this.handlePassword }
-          />
+            <TextInput 
+              placeholder = { 'Password' }
+              placeholderTextColor = "#ADA89F"
+              style = { Style.inputText }
+              autoCapitalize = "none"
+              secureTextEntry = { true } 
+              value = { this.state.password }
+              onChangeText = { this.handlePassword }
+            />
 
-          <TouchableHighlight style = { Style.button } underlayColor = "null" onPress = { () => this.onHomePage( this.state.mobilePhone, this.state.password ) } >
-              <Text style = { Style.text }>LogIn</Text>
-          </TouchableHighlight>
+            <TouchableHighlight style = { Style.button } underlayColor = "null" onPress = { () => this.onHomePage( this.state.email, this.state.password ) } >
+                <Text style = { Style.text }>LogIn</Text>
+            </TouchableHighlight>
 
-          <Text onPress = { this.onForgottenPasswordPage } style = { Style.forgottenText }>
-            Don't remember password?
-          </Text>
+            <Text onPress = { this.onForgottenPasswordPage } style = { Style.forgottenText }>
+              Don't remember password?
+            </Text>
 
-          <TouchableHighlight style = { Style.button } underlayColor = "null" onPress = { this.onRegistrationPage }>
-              <Text style = { Style.text }>Registration</Text>
-          </TouchableHighlight>
+            <TouchableHighlight style = { Style.button } underlayColor = "null" onPress = { this.onRegistrationPage }>
+                <Text style = { Style.text }>Registration</Text>
+            </TouchableHighlight>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 

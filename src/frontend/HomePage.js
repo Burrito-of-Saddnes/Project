@@ -244,13 +244,13 @@ export default class HomePage extends Component {
 				<View style={Style.addContainer}>
 					<View style={{ alignItems: "center" }}>
 						<TouchableHighlight style={Style.addingMenuButton} underlayColor="null" onPress={() => this.toggleAddingWithCancel()}>
-              {/* <View style={Style.addingMenuButton}> */}
-              <Image
-                style={{ width: 40, height: 40, borderRadius: 40 }}
-                source={require('./1.png')}
-              />
-              {/* </View> */}
-            </TouchableHighlight>
+              				{/* <View style={Style.addingMenuButton}> */}
+              				<Image
+              				  style={{ width: 40, height: 40, borderRadius: 40 }}
+              				  source={require('./1.png')}
+              				/>
+              				{/* </View> */}
+            			</TouchableHighlight>
 					</View>
 
 					<Modal
@@ -329,7 +329,7 @@ export default class HomePage extends Component {
 					<FlatList
 						data={this.state.listOfPersons}
 						renderItem={renderItem}
-					></FlatList>
+					/>
 				</View>
 
 

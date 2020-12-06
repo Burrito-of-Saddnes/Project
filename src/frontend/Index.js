@@ -11,6 +11,7 @@ import ForgottenPasswordPage from './ForgottenPasswordPage';
 import ProfilePage from './ProfilePage';
 import ChatPage from './ChatPage';
 import NotesPage from './NotesPage';
+import VerificationPage from './VerificationPage'
 
 
 const Stack = createStackNavigator();
@@ -71,6 +72,20 @@ export default class Index extends Component {
               }
             }
           />
+          <Stack.Screen 
+              name = "Verification" 
+              component = { VerificationPage } 
+              options = {
+                {
+                  headerStyle: 
+                    {
+                      backgroundColor: '#1E1F25',
+                      borderBottomWidth: 0,
+                    }, 
+                  headerTintColor: '#fff'
+                }
+              }
+            />
           <Stack.Screen
             name = "Home"
             component = { HomePage }

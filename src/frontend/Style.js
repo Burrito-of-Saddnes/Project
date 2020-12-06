@@ -7,6 +7,7 @@ const windowHeight = Dimensions.get('window').height;
 export default StyleSheet.create(
 	{
 		mainColor: {
+			marginTop: "30%",
 			flex: 1,
 			backgroundColor: '#1E1F25',
 			alignItems: 'center',
@@ -24,16 +25,16 @@ export default StyleSheet.create(
 			justifyContent: 'center'
 		},
 
-		verificationButton: {
-			width: 200,
-			height: 41,
-			backgroundColor: '#24509A',
-			margin: 10,
-			borderColor: '#48BBEC',
-			borderWidth: 1,
-			borderRadius: 30,
-			justifyContent: 'center'
-		},
+		// verificationButton: {
+		// 	width: "60%",
+		// 	height: "15%",
+		// 	backgroundColor: '#24509A',
+		// 	margin: 10,
+		// 	borderColor: '#48BBEC',
+		// 	borderWidth: 1,
+		// 	borderRadius: 30,
+		// 	justifyContent: 'center'
+		// },
 
 		addingMenuButton: {
 			marginLeft: 10,
@@ -70,6 +71,24 @@ export default StyleSheet.create(
 
 		roleMenu: {
 			height: "30%",
+			// minHeight: "30%",
+			width: "70%",
+			borderRadius: 30,
+			borderColor: '#48BBEC',
+			borderWidth: 1,
+			paddingTop: 10,
+			paddingBottom: 10,
+			paddingLeft: 20,
+			paddingRight: 20,
+			backgroundColor: '#fff',
+			justifyContent: "space-around",
+			alignItems: 'center',
+			position: 'absolute'
+		},
+
+		validationMenu: {
+			height: windowHeight * 0.3,
+			// minHeight: "30%",
 			width: "70%",
 			borderRadius: 30,
 			borderColor: '#48BBEC',
@@ -94,8 +113,6 @@ export default StyleSheet.create(
 			borderWidth: 1,
 			padding: 15,
 			position: 'absolute',
-			
-
 		},
 
 		addingRoleMenu: {
@@ -134,7 +151,26 @@ export default StyleSheet.create(
 
 		},
 
-
+		// testImput: {
+		// 	height: "100%",
+		// 	width: "100%",
+		// 	backgroundColor: '#ecf0f1',
+		// 	textAlign: 'center',
+		// 	borderRadius: 15,
+		// },
+		// testButton: {
+		// 	// marginLeft: 10,
+		// 	width: "50%",
+		// 	height: "50%",
+		// 	// backgroundColor: 'blue',
+		// 	// borderColor: '#48BBEC',
+		// 	// borderWidth: 1,
+		// 	borderRadius: 40,
+		// 	justifyContent: 'center',
+		// 	alignContent:'center',
+		// 	alignItems: 'center',
+		// 	alignSelf:'center',
+		// },
 
 		input: {
 			width: 50,
