@@ -58,7 +58,7 @@ export default class Index extends Component {
               }
             }
           />
-          <Stack.Screen 
+          {/* <Stack.Screen 
             name = "RegistrationPart2" 
             component = { RegistrationPagePart2 } 
             options = {
@@ -85,7 +85,7 @@ export default class Index extends Component {
                   headerTintColor: '#fff'
                 }
               }
-            />
+            /> */}
           <Stack.Screen
             name = "Home"
             component = { HomePage }

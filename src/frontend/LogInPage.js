@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import { Base64 } from 'js-base64';
 import { 
   Text, 
   TextInput, 
@@ -18,6 +19,7 @@ export default class LogInPage extends Component {
     this.state = {
       email: null,
       password: null,
+      update_data: '',
     };
   };
 
@@ -40,12 +42,45 @@ export default class LogInPage extends Component {
     if( email != null  && password != null ) {
       console.log('Email: ' + email + '\n' + 'password: ' + password)
       const { navigation } = this.props;
-      navigation.navigate( 'Home' )
+      // this.encrypt_password();   
+      // this.UserLoginFunction()
+      this.props.navigation.navigate('Home');
     }
     else {
       console.log( 'пошёл нахер' )
     }
   };
+
+  encrypt_password = () => {
+    var temp = Base64.encode(this.state.password);
+    this.setState({ update_data: temp });
+    this.UserLoginFunction();
+  }
+
+  UserLoginFunction = ( email, password ) => {    
+    fetch('http://127.0.0.1/reg/index1.php', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+      })
+    }).then(
+        (response) => response.json()
+      ).then((responseJson) => {
+          // If server response message same as Data Matched
+          if(responseJson === 'Data Matched')
+          {
+            //Then open Profile activity and send user email to profile activity.
+            this.props.navigation.navigate('Home');
+          }
+          else{
+            console.log(responseJson);
+          }
+        }).catch((error) => 
+          {
+            console.error(error);
+          });
+    }
 
   onForgottenPasswordPage = () => {
     const { navigation } = this.props;

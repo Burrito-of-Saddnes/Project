@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import { Base64 } from 'js-base64';
 import { 
   View, 
   TextInput, 
@@ -7,7 +8,8 @@ import {
   Text,
   Modal, 
   ScrollView, 
-  Button} from 'react-native';
+  Button,
+} from 'react-native';
 import Style from './Style';
 import 'react-native-gesture-handler';
 import { Dimensions } from 'react-native';
@@ -26,9 +28,10 @@ export default class RegistrationPage extends Component {
       validationDisplayed: false,
       validationPassword: "",
       pickerDisplayed: false,
-      email: null,
-      password: null,
-      repeatPassword : null,
+      email: '',
+      password: '',
+      repeatPassword : '',
+      update_data: '',
       message: '',
       validationMessage: "Imput validation code",
       buttonSendLogIn: false,
@@ -57,8 +60,34 @@ export default class RegistrationPage extends Component {
       this.setState({ validationMessage: "correct" })
       this.setState({buttonSendLogIn: true})
       this.toogleValidation();
+      // this.UserRegistrationFunction();
     }
   };
+
+  UserRegistrationFunction = ()  => {
+    fetch('http://127.0.0.1/reg/index.php', {
+      method: 'POST',
+      body: JSON.stringify({
+        role: this.state.pickerSelection,
+        email: this.state.email,
+        password: this.state.update_data 
+      })
+    }).then((response) => response.json())
+          .then((responseJson) => {
+            // Showing response message coming from server after inserting records.
+            // If server response message same as User Registered Successfully
+            if(responseJson === 'User Registered Successfully')
+            {
+              console.log(responseJson);
+              this.onLogInPage();
+            }
+            else{
+              console.log(responseJson);
+            }
+          }).catch((error) => {
+            console.error(error);
+          });
+  }
 
   toogleValidationWithAccept() {
     this.onValidationCheck();
@@ -91,8 +120,8 @@ export default class RegistrationPage extends Component {
 
   onTextCheck = (  email, password, repeatPassword, pickerSelection ) => {
     if( 
-        email != null &&
-        password != null &&
+        email != '' &&
+        password != '' &&
         repeatPassword == password &&
         pickerSelection != 'Select role'
       )
@@ -106,8 +135,7 @@ export default class RegistrationPage extends Component {
           'repeatPassword: ' + repeatPassword + '\n' +
           'role: ' + pickerSelection + '.'
         );
-        // this.onVerificationPage();
-        this.randomGenerator();
+        this.encrypt_password();
       }
     }
     else {
@@ -115,7 +143,7 @@ export default class RegistrationPage extends Component {
       if( repeatPassword !=password ){
         this.setState({ message: "repeatPassword !=password" })
       }
-      if( repeatPassword !=password && (email == null || password == null || ( pickerSelection !=  'a' || 'b' || 'c' ) ) ){
+      if( repeatPassword !=password && (email == '' || password == '' || ( pickerSelection !=  'a' || 'b' || 'c' ) ) ){
         this.setState({ message: "repeatPassword !=password and null" })
       }
     }
@@ -131,6 +159,12 @@ export default class RegistrationPage extends Component {
     text = text.substr(0, 20);
     this.setState({ password: text })
   };
+
+  encrypt_password = () => {
+    let temp = Base64.encode(this.state.password);
+    this.setState({ update_data: temp });
+    this.randomGenerator();
+  }
 
   handleRepeatPassword = ( text ) => {
     this.setState({ repeatPassword: text })
